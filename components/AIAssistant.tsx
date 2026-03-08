@@ -1,7 +1,11 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
+<<<<<<< HEAD
 import { GoogleGenerativeAI } from '@google/generative-ai'
+=======
+import { GoogleGenAI } from '@google/genai'
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
 import { 
   MessageSquare, 
   Send, 
@@ -52,6 +56,7 @@ export function AIAssistant() {
     setIsLoading(true)
 
     try {
+<<<<<<< HEAD
       // Check if API key is available
       const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY
       
@@ -77,6 +82,26 @@ export function AIAssistant() {
         : "I encountered an error. Please check your connection and try again."
       
       setMessages(prev => [...prev, { role: 'assistant', content: errorMessage }])
+=======
+      const ai = new GoogleGenAI({ apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY! })
+      const model = 'gemini-3-flash-preview'
+      
+      const response = await ai.models.generateContent({
+        model,
+        contents: [
+          { role: 'user', parts: [{ text: userMessage }] }
+        ],
+        config: {
+          systemInstruction: "You are an expert Healthcare Correspondence Assistant. You help healthcare professionals manage documents, letters, and compliance. You are professional, accurate, and HIPAA-aware. You provide concise, helpful advice on medical terminology, document structure, and regulatory compliance.",
+        }
+      })
+
+      const aiResponse = response.text || "I'm sorry, I couldn't process that request."
+      setMessages(prev => [...prev, { role: 'assistant', content: aiResponse }])
+    } catch (error) {
+      console.error('AI Error:', error)
+      setMessages(prev => [...prev, { role: 'assistant', content: "I encountered an error. Please check your connection and try again." }])
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
     } finally {
       setIsLoading(false)
     }

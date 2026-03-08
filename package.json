@@ -10,7 +10,11 @@
     "clean": "next clean"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@google/generative-ai": "^0.21.0",
+=======
+    "@google/genai": "^1.17.0",
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
     "@hookform/resolvers": "^5.2.2",
     "autoprefixer": "^10.4.21",
     "class-variance-authority": "^0.7.1",

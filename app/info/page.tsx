@@ -29,6 +29,7 @@ import {
   Workflow,
   ChevronRight,
   ChevronDown,
+<<<<<<< HEAD
   Database,
   Stethoscope,
   Scale,
@@ -37,6 +38,9 @@ import {
   Search,
   Play,
   Loader2
+=======
+  Database
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
 } from 'lucide-react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
@@ -84,6 +88,7 @@ const CORRESPONDENCE_TYPES = [
 ]
 
 const APPROVAL_LEVELS = [
+<<<<<<< HEAD
   { 
     level: 1, 
     name: 'Draft Review', 
@@ -563,14 +568,25 @@ FOLLOW-UP:
       accuracy: '97%'
     }
   }
+=======
+  { level: 1, name: 'Draft Review', description: 'Initial content and structure review', avgTime: '4 hours' },
+  { level: 2, name: 'Clinical Review', description: 'Medical accuracy and terminology check', avgTime: '8 hours' },
+  { level: 3, name: 'Compliance Check', description: 'HIPAA, GDPR, and regulatory compliance', avgTime: '6 hours' },
+  { level: 4, name: 'Legal Review', description: 'Legal implications and liability assessment', avgTime: '12 hours' },
+  { level: 5, name: 'Final Approval', description: 'Executive sign-off and authorization', avgTime: '4 hours' },
+  { level: 6, name: 'Execution', description: 'Document distribution and archival', avgTime: '2 hours' },
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
 ]
 
 export default function InfoPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>('lifecycle')
+<<<<<<< HEAD
   const [selectedApprovalLevel, setSelectedApprovalLevel] = useState<any>(null)
   const [selectedAIDemo, setSelectedAIDemo] = useState<any>(null)
   const [aiDemoLoading, setAiDemoLoading] = useState(false)
   const [aiDemoResult, setAiDemoResult] = useState<any>(null)
+=======
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
 
   const toggleSection = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section)
@@ -771,16 +787,27 @@ export default function InfoPage() {
                 <h4 className="font-bold text-slate-900 mb-6">6-Level Approval Process</h4>
                 <div className="space-y-4">
                   {APPROVAL_LEVELS.map((level, index) => (
+<<<<<<< HEAD
                     <motion.button
+=======
+                    <motion.div
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
                       key={level.level}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
+<<<<<<< HEAD
                       onClick={() => setSelectedApprovalLevel(level)}
                       className="w-full flex items-start gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-indigo-300 hover:shadow-md transition-all text-left group"
                     >
                       <div className={cn("w-10 h-10 rounded-full flex items-center justify-center font-bold shrink-0", level.color)}>
                         <level.icon size={20} />
+=======
+                      className="flex items-start gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200"
+                    >
+                      <div className="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold shrink-0">
+                        {level.level}
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
                       </div>
                       <div className="flex-1">
                         <h5 className="font-bold text-slate-900 mb-1">{level.name}</h5>
@@ -790,6 +817,7 @@ export default function InfoPage() {
                           <span>Avg. Time: {level.avgTime}</span>
                         </div>
                       </div>
+<<<<<<< HEAD
                       <ChevronRight className="text-slate-400 group-hover:text-indigo-600 shrink-0 transition-colors" size={20} />
                     </motion.button>
                   ))}
@@ -799,6 +827,12 @@ export default function InfoPage() {
                     💡 Click on any approval level to see detailed responsibilities, required actions, and escalation rules.
                   </p>
                 </div>
+=======
+                      <ChevronRight className="text-slate-400 shrink-0" size={20} />
+                    </motion.div>
+                  ))}
+                </div>
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
               </div>
 
               {/* Workflow Features */}
@@ -905,6 +939,7 @@ export default function InfoPage() {
                     <p className="text-sm text-slate-600">Advanced AI assistance throughout the correspondence lifecycle</p>
                   </div>
                 </div>
+<<<<<<< HEAD
                 <div className="grid grid-cols-3 gap-4 mt-4">
                   <div className="p-3 bg-white rounded-lg">
                     <div className="text-2xl font-bold text-indigo-600">94%</div>
@@ -1012,6 +1047,41 @@ export default function InfoPage() {
                     <div className="text-xs text-slate-600 mt-1">User Satisfaction</div>
                   </div>
                 </div>
+=======
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <AIFeatureCard
+                  title="Context-Aware Help"
+                  description="Intelligent assistance based on current document context and user actions"
+                  features={['Smart suggestions', 'Next step guidance', 'Status prediction']}
+                />
+                <AIFeatureCard
+                  title="Content Generation"
+                  description="AI-powered document drafting and content improvement"
+                  features={['Auto-completion', 'Draft improvement', 'Template recommendations']}
+                />
+                <AIFeatureCard
+                  title="Compliance Detection"
+                  description="Automated identification of compliance violations and risks"
+                  features={['Violation detection', 'Risk assessment', 'Correction suggestions']}
+                />
+                <AIFeatureCard
+                  title="Natural Language Search"
+                  description="Search documents using conversational queries"
+                  features={['Semantic search', 'Key extraction', 'Document summarization']}
+                />
+                <AIFeatureCard
+                  title="Medical Terminology"
+                  description="Intelligent medical term handling and validation"
+                  features={['Term explanation', 'Accuracy checking', 'Synonym suggestions']}
+                />
+                <AIFeatureCard
+                  title="Sentiment Analysis"
+                  description="Analyze tone and sentiment in patient communications"
+                  features={['Tone detection', 'Empathy scoring', 'Language optimization']}
+                />
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
               </div>
             </div>
           </CollapsibleSection>
@@ -1193,6 +1263,7 @@ export default function InfoPage() {
         </div>
       </main>
 
+<<<<<<< HEAD
       {/* Approval Level Detail Modal */}
       {selectedApprovalLevel && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
@@ -1560,6 +1631,8 @@ export default function InfoPage() {
         </div>
       )}
 
+=======
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
       <AIAssistant />
     </div>
   )

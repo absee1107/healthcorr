@@ -24,7 +24,11 @@ import {
 import { MOCK_DOCUMENTS } from '@/lib/mock-data'
 import { cn, formatDate, getStatusColor } from '@/lib/utils'
 import { motion, AnimatePresence } from 'motion/react'
+<<<<<<< HEAD
 import { GoogleGenerativeAI } from '@google/generative-ai'
+=======
+import { GoogleGenAI } from '@google/genai'
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
 
 export default function DocumentEditorPage({ params }: { params: Promise<{ id: string }> }) {
   const [doc, setDoc] = useState(MOCK_DOCUMENTS[0]) // Default to first for demo
@@ -39,6 +43,7 @@ export default function DocumentEditorPage({ params }: { params: Promise<{ id: s
   const handleAnalyze = async () => {
     setIsAnalyzing(true)
     try {
+<<<<<<< HEAD
       const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY
       
       if (!apiKey) {
@@ -54,6 +59,10 @@ export default function DocumentEditorPage({ params }: { params: Promise<{ id: s
           topP: 0.95,
         }
       })
+=======
+      const ai = new GoogleGenAI({ apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY! })
+      const model = 'gemini-3-flash-preview'
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
       
       const prompt = `Analyze the following healthcare document for compliance with HIPAA, medical terminology accuracy, and professional tone. 
       Return a JSON object with:
@@ -64,6 +73,7 @@ export default function DocumentEditorPage({ params }: { params: Promise<{ id: s
       Document Content:
       ${content}`
 
+<<<<<<< HEAD
       const result = await model.generateContent(prompt)
       const response = await result.response
       const text = response.text()
@@ -89,6 +99,18 @@ export default function DocumentEditorPage({ params }: { params: Promise<{ id: s
         ],
         suggestions: ['Ensure NEXT_PUBLIC_GEMINI_API_KEY is configured', 'Check document content format']
       })
+=======
+      const response = await ai.models.generateContent({
+        model,
+        contents: [{ role: 'user', parts: [{ text: prompt }] }],
+        config: { responseMimeType: 'application/json' }
+      })
+
+      const result = JSON.parse(response.text || '{}')
+      setComplianceResults(result)
+    } catch (error) {
+      console.error('Analysis error:', error)
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
     } finally {
       setIsAnalyzing(false)
     }

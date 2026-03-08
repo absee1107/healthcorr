@@ -15,12 +15,16 @@ import {
   ShieldCheck,
   Stethoscope,
   Scale,
+<<<<<<< HEAD
   FileText,
   X,
   AlertCircle,
   FileCheck,
   Users,
   ChevronRight
+=======
+  FileText
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { motion } from 'motion/react'
@@ -56,6 +60,7 @@ export default function WorkflowsPage() {
   const [selectedWorkflow, setSelectedWorkflow] = useState(MOCK_WORKFLOWS[0])
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [showAddStepModal, setShowAddStepModal] = useState(false)
+<<<<<<< HEAD
   const [selectedStep, setSelectedStep] = useState<any>(null)
 
   const workflowSteps = [
@@ -148,6 +153,8 @@ export default function WorkflowsPage() {
       typicalUsers: ['Legal Counsel', 'Risk Attorney', 'Medical Director']
     }
   ]
+=======
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
 
   const handleCreateWorkflow = (e: React.FormEvent) => {
     e.preventDefault()
@@ -236,6 +243,7 @@ export default function WorkflowsPage() {
                 />
 
                 <div className="relative z-10 flex flex-col items-center gap-12">
+<<<<<<< HEAD
                   {workflowSteps.map((step, index) => (
                     <React.Fragment key={step.name}>
                       <button
@@ -253,6 +261,35 @@ export default function WorkflowsPage() {
                       {index < workflowSteps.length - 1 && <ArrowDown />}
                     </React.Fragment>
                   ))}
+=======
+                  <DesignerStep 
+                    icon={FileText} 
+                    name="Draft Creation" 
+                    role="Creator" 
+                    color="bg-slate-100 text-slate-600" 
+                  />
+                  <ArrowDown />
+                  <DesignerStep 
+                    icon={Stethoscope} 
+                    name="Clinical Review" 
+                    role="Attending Physician" 
+                    color="bg-indigo-100 text-indigo-600" 
+                  />
+                  <ArrowDown />
+                  <DesignerStep 
+                    icon={ShieldCheck} 
+                    name="Compliance Check" 
+                    role="Compliance Officer" 
+                    color="bg-emerald-100 text-emerald-600" 
+                  />
+                  <ArrowDown />
+                  <DesignerStep 
+                    icon={Scale} 
+                    name="Final Legal Approval" 
+                    role="Legal Dept" 
+                    color="bg-amber-100 text-amber-600" 
+                  />
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
                   
                   <div className="w-full max-w-md p-6 bg-slate-50 rounded-2xl border border-dashed border-slate-200 flex flex-col items-center justify-center text-slate-400 hover:border-indigo-300 hover:text-indigo-400 transition-all cursor-pointer group"
                     onClick={() => setShowAddStepModal(true)}
@@ -443,6 +480,7 @@ export default function WorkflowsPage() {
         </div>
       )}
 
+<<<<<<< HEAD
       {/* Step Detail Modal */}
       {selectedStep && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
@@ -578,16 +616,26 @@ export default function WorkflowsPage() {
         </div>
       )}
 
+=======
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
       <AIAssistant />
     </div>
   )
 }
 
+<<<<<<< HEAD
 function DesignerStep({ icon: Icon, name, role, color, sla }: any) {
   return (
     <motion.div 
       whileHover={{ scale: 1.02 }}
       className="w-full max-w-md bg-white border border-slate-200 rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-indigo-300 flex items-center gap-4 relative transition-all cursor-pointer"
+=======
+function DesignerStep({ icon: Icon, name, role, color }: any) {
+  return (
+    <motion.div 
+      whileHover={{ scale: 1.02 }}
+      className="w-full max-w-md bg-white border border-slate-200 rounded-2xl p-4 shadow-sm flex items-center gap-4 relative"
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
     >
       <div className={cn("p-3 rounded-xl", color)}>
         <Icon size={24} />
@@ -602,6 +650,7 @@ function DesignerStep({ icon: Icon, name, role, color, sla }: any) {
       <div className="flex items-center gap-1">
         <div className="flex items-center gap-1 px-2 py-1 bg-slate-50 rounded-lg text-[10px] font-bold text-slate-400">
           <Clock size={10} />
+<<<<<<< HEAD
           {sla} SLA
         </div>
         <div className="p-2 text-slate-300 hover:text-slate-600 transition-all">
@@ -610,6 +659,13 @@ function DesignerStep({ icon: Icon, name, role, color, sla }: any) {
       </div>
       <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-xs">
         <ChevronRight size={12} />
+=======
+          24h SLA
+        </div>
+        <button className="p-2 text-slate-300 hover:text-slate-600 transition-all">
+          <MoreVertical size={16} />
+        </button>
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
       </div>
     </motion.div>
   )

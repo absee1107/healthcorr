@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # healthcorr
 Correspondence Management Tool
 =======
+=======
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
 # Healthcare Document Management System
 
 > AI-powered document management system for healthcare with compliance checking, workflow automation, and Gemini AI integration.
@@ -376,4 +379,7 @@ Choose your path:
 ---
 
 Made with ❤️ for Healthcare Professionals
+<<<<<<< HEAD
 >>>>>>> 51dd66a (Initial commit)
+=======
+>>>>>>> 51dd66adfe27c3d22c81b4fd75a5c036b26d9e05
