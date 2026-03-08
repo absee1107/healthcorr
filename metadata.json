@@ -1,0 +1,8 @@
+{
+  "name": "HealthCorr Manage",
+  "description": "Comprehensive Healthcare Correspondence Management System with AI-powered workflows and compliance checking.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
